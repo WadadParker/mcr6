@@ -1,0 +1,52 @@
+.icon {
+    font-size: 2rem;
+}
+.icon:hover {
+    color:#ef4f5f;
+    cursor: pointer;
+}
+.nav {
+    justify-self: start;
+}
+.heading {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 3rem;
+    grid-column: 1 / span 2;
+    justify-self: start;
+}
+.description {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    justify-self: start;
+}
+.description small {
+    color: gray;
+}
+.hotel-review-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-content: center;
+    place-items: center;
+    width: 50vw;
+    margin:0 auto;
+}
+.line {
+    justify-self: stretch;
+    grid-column: 1 / span 2;
+}
+.hotel-review-container h2 {
+    justify-self: start;
+    grid-column: 1 / span 2;
+}
+.review-list-container {
+    list-style: none;
+    justify-self: start;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+    width: 100%;
+    grid-column: 1 / span 2;
+}

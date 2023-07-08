@@ -1,0 +1,41 @@
+.dish-list-container {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline-start: 0px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+.dish-list-item-container {
+    display: grid;
+    height: fit-content;
+    width: fit-content;
+    margin:  1rem;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+}
+.img {
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+.description {
+    display: grid;
+    margin: 0.5rem 1rem;
+    justify-items: start;
+}
+.description small{
+    color: gray;
+    margin-top: 0.5rem;
+}
+.dish-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+.heading {
+    margin-left: 1rem;
+    text-align: left;
+}
