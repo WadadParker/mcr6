@@ -11,7 +11,12 @@ export const ReviewModal=({hotel})=>
 
     const clickHandler=()=>
     {
-        dispatch({type:"ADD",payload:hotel});
+        if(rating==="" || comment==="")
+        {
+            alert("Please enter all fields");
+        }
+        else 
+        {dispatch({type:"ADD",payload:hotel});}
     }
 
     return (

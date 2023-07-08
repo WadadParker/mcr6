@@ -9,7 +9,7 @@
 }
 .modal-container {
     z-index: 12;
-    width: 35vw;
+    width: fit-content;
     height: fit-content;
     padding: 1rem;
     border: 2px solid #ef4f5f;
