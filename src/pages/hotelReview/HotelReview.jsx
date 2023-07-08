@@ -20,8 +20,13 @@ export const HotelReview=()=>
 
     const hotel=[...hotelList].find(({id})=>id===Number(hotelID))
 
+    const clickHandler=()=>
+    {
+        dispatch({type:"SELECT_CUISINE",payload:null})
+    }
+
     return (
-        <> {showModal && <ReviewModal />}
+        <> {showModal && <ReviewModal hotel={hotel}/>}
         <div className={styles[`hotel-review-container`]}>
             <nav className={styles.nav}>
             <FontAwesomeIcon icon={faArrowLeft} className={styles.icon} onClick={()=>navigate("/")}/>

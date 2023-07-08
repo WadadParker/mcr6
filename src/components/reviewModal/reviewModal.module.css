@@ -9,7 +9,7 @@
 }
 .modal-container {
     z-index: 12;
-    width: 40vw;
+    width: 35vw;
     height: fit-content;
     padding: 1rem;
     border: 2px solid #ef4f5f;
@@ -18,7 +18,7 @@
     margin-top: 10rem;
     background-color: #ef4f5f;
     position: relative;
-    height: 35vh;
+    height: 37vh;
 }
 .close-button {
     background-color: transparent;
@@ -28,6 +28,7 @@
     position: absolute;
     left: 0;
     margin-left: 1rem;
+    cursor: pointer
 }
 .heading {
     color: white;
@@ -41,9 +42,11 @@
     border-radius: 0.5rem;
     font-size: 1.1rem;
     grid-column: 1 / span 2;
+    cursor: pointer;
 }
 .label {
     color: white;
+    font-size: 1.2rem;
 }
 .main {
     display: grid;
@@ -51,6 +54,7 @@
     place-content: center;
     place-items: center;
     gap: 3rem 2rem;
+    margin-top: 2rem;
 
 }
 .comment {

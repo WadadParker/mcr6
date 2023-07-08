@@ -8,7 +8,8 @@ export const HotelProvider=({children})=>
 {
     const Reducer=(state,{type,payload,inputField})=>
     {
-        const clearInput={name:""};
+        const clearInput={revName:"Wadad",rating:"",comment:"",pp:"https://w0.peakpx.com/wallpaper/261/712/HD-wallpaper-baal-raiden-shogun-genshin-impact.jpg"};
+        const {hotelList,input}=state;
         switch(type) 
         {
             case "INPUT_FIELDS":
@@ -16,9 +17,6 @@ export const HotelProvider=({children})=>
                
             case "TOGGLE_MODAL":
                 return {...state,showModal:payload};    
-               
-            case "ADD":
-                return {...state,list:[...state.list,state.input],input:clearInput,showModal:false};  
              
             case "CLEAR_INPUT":
                 return {...state,input:clearInput,showModal:false};    
@@ -26,12 +24,29 @@ export const HotelProvider=({children})=>
             case "SELECT_CUISINE":
                 return {...state,selectedCuisineID:payload};    
 
+            case "ADD":
+                const calculateAverageRating=(reviews)=>
+                {
+                    const average= (reviews.reduce((acc,curr)=>acc + Number(curr.rating),0)/Number(reviews.length)).toFixed(2);
+                    console.log(average);
+                    return average;
+                }
+                const updatedHotelList=hotelList.map((item)=>{
+                    if(item.id===payload.id)
+                    {
+                        const updatedRatings=[...item.ratings,input]
+                        return {...item,ratings:updatedRatings,averageRating:calculateAverageRating(updatedRatings)}
+                    }
+                    return item;
+                })
+                return {...state,hotelList:updatedHotelList,input:clearInput,showModal:false};      
+
             default:
                 return state;    
         }
     }
     const initialState= {
-        input:{rating:"",comment:""},
+        input:{revName:"Wadad",rating:"",comment:"",pp:"https://w0.peakpx.com/wallpaper/261/712/HD-wallpaper-baal-raiden-shogun-genshin-impact.jpg"},
         showModal:false,
         hotelList:restaurantsData,
         selectedCuisineID:null,

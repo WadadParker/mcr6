@@ -4,10 +4,16 @@ import { useContext } from "react";
 
 import {HotelContext} from "../../context/HotelContext"
 
-export const ReviewModal=()=>
+export const ReviewModal=({hotel})=>
 {
     const {state,dispatch}=useContext(HotelContext);
     const {input:{rating,comment}}=state;
+
+    const clickHandler=()=>
+    {
+        dispatch({type:"ADD",payload:hotel});
+    }
+
     return (
         <div className={styles.modal}>
             <div className={styles[`modal-container`]}>
@@ -19,7 +25,7 @@ export const ReviewModal=()=>
                 {/* input fields */}
                 <main className={styles.main}>
                 <label htmlFor="rating" className={styles.label}>Rating:</label>
-                <select>
+                <select value={rating} onChange={(e)=>dispatch({type:"INPUT_FIELDS",payload:e.target.value,inputField:"rating"})}>
                     <option disabled selected value="">Select Rating</option>
                     <option>1</option>
                     <option>2</option>
@@ -31,7 +37,7 @@ export const ReviewModal=()=>
                 <label htmlFor="name" className={styles.label}>Comment:</label>
                 <textarea className={styles.comment} id="name" value={comment} onChange={(e)=>dispatch({type:"INPUT_FIELDS",payload:e.target.value,inputField:"comment"})}></textarea> 
 
-                <button className={styles.submit} onClick={()=>dispatch({type:"ADD"})}>Submit</button>
+                <button className={styles.submit} onClick={()=>clickHandler()}>Submit</button>
                 </main>
             </div>
         </div>
