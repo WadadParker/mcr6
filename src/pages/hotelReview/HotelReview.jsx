@@ -22,14 +22,15 @@ export const HotelReview=()=>
 
     const clickHandler=()=>
     {
-        dispatch({type:"SELECT_CUISINE",payload:null})
+        dispatch({type:"SELECT_CUISINE",payload:null});
+        navigate("/");
     }
 
     return (
         <> {showModal && <ReviewModal hotel={hotel}/>}
         <div className={styles[`hotel-review-container`]}>
             <nav className={styles.nav}>
-            <FontAwesomeIcon icon={faArrowLeft} className={styles.icon} onClick={()=>navigate("/")}/>
+            <FontAwesomeIcon icon={faArrowLeft} className={styles.icon} onClick={()=>clickHandler()}/>
             </nav>
             <h1 className={styles.heading}>{hotel?.name}</h1>
             <header className={styles.description}>
