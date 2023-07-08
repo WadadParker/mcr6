@@ -9,17 +9,19 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import {HotelContext} from "../../context/HotelContext";
 import { ReviewCard } from "../../components/reviewCard/ReviewCard";
+import {ReviewModal} from "../../components/reviewModal/ReviewModal";
 
 export const HotelReview=()=>
 {
     const {state,dispatch,sortByCuisine}=useContext(HotelContext);
-    const {hotelList}=state;
+    const {hotelList, showModal}=state;
     const {hotelID}=useParams();
     const navigate=useNavigate();
 
     const hotel=[...hotelList].find(({id})=>id===Number(hotelID))
 
     return (
+        <> {showModal && <ReviewModal />}
         <div className={styles[`hotel-review-container`]}>
             <nav className={styles.nav}>
             <FontAwesomeIcon icon={faArrowLeft} className={styles.icon} onClick={()=>navigate("/")}/>
@@ -30,7 +32,7 @@ export const HotelReview=()=>
                 <small>{hotel?.address}</small>
                 <small>Average Rating: {hotel?.averageRating}</small>
             </header>
-            <button className={buttonStyle.button}>Add Review</button>
+            <button className={buttonStyle.button} onClick={()=>dispatch({type:"TOGGLE_MODAL",payload:true})}>Add Review</button>
            <span className={styles.line}> <hr/></span>
            <h2>Reviews</h2>
 
@@ -41,6 +43,8 @@ export const HotelReview=()=>
                 </li>
             ))}
            </ul>
+          
         </div>
+        </>
     )
 }
