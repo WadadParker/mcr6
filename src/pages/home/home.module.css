@@ -7,6 +7,7 @@
     margin: 1rem;
     font-size: 1.3rem;
     cursor: pointer;
+    justify-self: end;
 }
 .heading {
     font-size: 3rem;
