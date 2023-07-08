@@ -1,0 +1,14 @@
+.button {
+    border: 1px solid #ef4f5f;
+    background-color: #ef4f5f;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    margin: 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.heading {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
